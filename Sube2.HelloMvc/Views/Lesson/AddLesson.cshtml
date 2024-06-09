@@ -1,0 +1,31 @@
+﻿@model Ders
+@{
+    ViewData["Title"] = "AddLesson";
+}
+
+<div class="container mt-5 text-area">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Ders Ekleme İşlemi</h2>
+            <form asp-action="AddLesson" asp-controller="Lesson" method="post" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="Dersad">Ders Adı:</label>
+                    <input asp-for="Dersad" class="form-control bg-custom-blue text-white" id="Dersad" required />
+                    <div class="invalid-feedback">
+                        Lütfen ders adını girin.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Kredi">Kredi:</label>
+                    <input asp-for="Kredi" class="form-control bg-custom-blue text-white" id="Kredi" required />
+                    <div class="invalid-feedback">
+                        Lütfen kredi bilgisini girin.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

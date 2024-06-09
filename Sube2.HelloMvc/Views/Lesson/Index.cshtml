@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Ders>
+@{
+    ViewData["Title"] = "Index";
+}<div class="text-area">
+    <h2>Dersler</h2>
+    <a asp-action="AddLesson" asp-controller="Lesson" class=" btn btn-outline-primary">Ders Ekle</a>
+    <table class="table">
+        <thead>
+            <tr class="table-header">
+                <th>Ders Id</th>
+                <th>Ders Adı</th>
+                <th>Ders Kredisi</th>
+                <th>İşlemler</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Dersid</th>
+                    <th>@item.Dersad</th>
+                    <th>@item.Kredi</th>
+                    <th><a class="btn btn-sm btn-outline-success" href="/Lesson/EditLesson/@item.Dersid">Düzenle</a> <a onclick=" return confirm('Emin Misiniz?')" class="btn btn-sm btn-outline-danger" href="/Lesson/DeleteLesson/@item.Dersid">Sil</a> </th>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

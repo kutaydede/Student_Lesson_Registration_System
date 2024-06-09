@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ders>
+@{
+    ViewData["Title"] = "AddLessonRegistration";
+    var studentId = ViewBag.StudentId;
+}
+<div class="text-area">
+    <h2 style="text-align:center">Öğrenciye Ders Ekleme</h2>
+    <a asp-action="StudentLessons" asp-controller="Student" asp-route-studentId="@studentId" class="btn btn-outline-primary">Aldığı Dersler</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ders Id</th>
+                <th>Ders Adı</th>
+                <th>Ders Kredisi</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Dersid</td>
+                    <td>@item.Dersad</td>
+                    <td>@item.Kredi</td>
+                    <td>
+                        <form asp-action="AddLessonRegistration" asp-controller="LessonRegistration" method="post">
+                            <input type="hidden" name="ogrenciid" value="@studentId" />
+                            <input type="hidden" name="dersid" value="@item.Dersid" />
+                            <button type="submit" class="btn btn-sm btn-outline-success" onclick="return confirm('Emin Misiniz?')">Ekle</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

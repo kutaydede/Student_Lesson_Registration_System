@@ -1,0 +1,47 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "AddStudent";
+}
+<div class="container mt-5 text-area">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-8">Öğrenci Ekleme İşlemi</h2>
+            <form asp-action="AddStudent" asp-controller="Student" method="post" class="needs-validation" >
+                <div class="form-group">
+                    <label for="Ad" class="text-white">Ad:</label>
+                    <input asp-for="Ad" class="form-control bg-custom-blue text-white" id="Ad" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="Soyad" class="text-white">Soyad:</label>
+                    <input asp-for="Soyad" class="form-control bg-custom-blue text-white" id="Soyad" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="Numara" class="text-white">Numara:</label>
+                    <input asp-for="Numara" class="form-control bg-custom-blue text-white" id="Numara" required />
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap 4 validation
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

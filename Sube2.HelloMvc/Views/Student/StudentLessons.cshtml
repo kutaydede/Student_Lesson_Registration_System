@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudentLessonViewModel>
+
+@{
+    ViewData["Title"] = "Student Lessons";
+}
+<div class="container mt-5 text-area">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mb-4">Öğrencinin Dersleri</h1>
+            <table class="table table-striped table-hover">
+                <thead class="bg-blue text-white">
+                    <tr>
+                        <th>Öğrenci Id</th>
+                        <th>Öğrenci Adı</th>
+                        <th>Öğrenci Soyadı</th>
+                        <th>Ders Id</th>
+                        <th>Ders Adı</th>
+                        <th>Ders Kredisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.StudentId</td>
+                            <td>@item.StudentName</td>
+                            <td>@item.StudentSurname</td>
+                            <td>@item.LessonId</td>
+                            <td>@item.LessonName</td>
+                            <td>@item.LessonCredit</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

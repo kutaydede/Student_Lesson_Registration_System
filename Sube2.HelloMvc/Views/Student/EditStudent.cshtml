@@ -1,0 +1,35 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "EditStudent";
+}
+
+<div class="container mt-5 text-area">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">EditStudent</h1>
+            <form asp-action="EditStudent" asp-controller="Student" method="post" class="needs-validation" >
+                <input asp-for="Ogrenciid" type="hidden" />
+
+                <div class="form-group">
+                    <label for="Ad" class="text-white">Ad:</label>
+                    <input asp-for="Ad" class="form-control bg-custom-blue text-white" id="Ad" required />
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Soyad" class="text-white">Soyad:</label>
+                    <input asp-for="Soyad" class="form-control bg-custom-blue text-white" id="Soyad" required />
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="Numara" class="text-white">Numara:</label>
+                    <input asp-for="Numara" class="form-control bg-custom-blue text-white" id="Numara" required />
+                   
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
